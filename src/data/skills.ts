@@ -7,7 +7,7 @@ export const techCategories = [
     { title: 'Languages', tag: 'bg-grape text-white',
       items: ['PHP', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'Go', 'Swift', 'jQuery'] },
     { title: 'Frameworks & Libraries', tag: 'bg-hotpink text-white',
-      items: ['Laravel', 'React', 'Next.js', 'React Native', 'Vue.js', 'Nuxt.js', 'Express', 'Flutter', 'CodeIgniter'] },
+      items: ['Laravel', 'React', 'Next.js', 'Astro', 'React Native', 'Vue.js', 'Nuxt.js', 'Express', 'Flutter', 'CodeIgniter'] },
     { title: 'Databases', tag: 'bg-sky text-ink',
       items: ['MySQL', 'Redis', 'MongoDB', 'SQLite'] },
     { title: 'Infra & DevOps', tag: 'bg-lime text-ink',
