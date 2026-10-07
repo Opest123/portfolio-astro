@@ -31,7 +31,7 @@ export const roles: Role[] = [
     },
     {
         years: '2022 – Aug 2025', company: 'Fintelligence', role: 'Senior Software Developer',
-        location: 'Gold Coast, QLD', tag: 'bg-hotpink text-white',
+        location: 'Gold Coast, QLD', tag: 'bg-hotpink text-ink',
         highlight: 'Rebuilt a multi-tenant loan and broker platform and cut core API response times by 40 percent. Shipped a React Native app that drove a 30 percent increase in mobile adoption.',
         stack: ['Laravel', 'Vue.js', 'React Native', 'MySQL', 'Redis', 'Docker', 'AWS'],
     },

@@ -75,7 +75,7 @@ export default function ContactForm() {
             )}
 
             {status === 'error' && (
-                <div role="alert" className="nb-card mb-8 bg-hotpink p-5 text-white">
+                <div role="alert" className="nb-card mb-8 bg-hotpink p-5 text-ink">
                     <p className="font-display text-sm uppercase">Something went wrong sending that. Please try again or email me directly.</p>
                 </div>
             )}

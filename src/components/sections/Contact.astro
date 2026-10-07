@@ -29,7 +29,8 @@ const links = [
                         class="flex items-center gap-3 font-grotesk hover:underline"
                     >
                         <span class="flex h-9 w-9 shrink-0 items-center justify-center border-[3px] border-white">{link.icon}</span>
-                        <span class="break-all">{link.text}</span>
+                        {/* <wbr> lets a long email wrap after the @ instead of mid-word */}
+                        <span class="min-w-0 break-words">{link.text.split('@').map((part, i) => (i === 0 ? part : <>@<wbr />{part}</>))}</span>
                     </a>
                 ))}
             </div>

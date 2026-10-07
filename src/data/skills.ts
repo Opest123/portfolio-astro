@@ -6,7 +6,7 @@ export const education = [
 export const techCategories = [
     { title: 'Languages', tag: 'bg-grape text-white',
       items: ['PHP', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'Go', 'Swift', 'jQuery'] },
-    { title: 'Frameworks & Libraries', tag: 'bg-hotpink text-white',
+    { title: 'Frameworks & Libraries', tag: 'bg-hotpink text-ink',
       items: ['Laravel', 'React', 'Next.js', 'Astro', 'React Native', 'Vue.js', 'Nuxt.js', 'Express', 'Flutter', 'CodeIgniter'] },
     { title: 'Databases', tag: 'bg-sky text-ink',
       items: ['MySQL', 'Redis', 'MongoDB', 'SQLite'] },
