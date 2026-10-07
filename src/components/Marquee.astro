@@ -1,0 +1,19 @@
+---
+import { ticker } from '../data/site';
+---
+
+<div class="marquee border-y-[3px] border-ink bg-ink py-4 text-cream">
+    <div class="marquee__track animate-marquee">
+        {/* Rendered twice so the -50% translate loops seamlessly */}
+        {[0, 1].map((copy) => (
+            <span aria-hidden={copy === 1 ? 'true' : undefined} class="flex items-center">
+                {ticker.map((word) => (
+                    <>
+                        <span class="mx-5 font-display text-lg uppercase tracking-wider md:text-2xl">{word}</span>
+                        <span class="text-lime md:text-2xl">✦</span>
+                    </>
+                ))}
+            </span>
+        ))}
+    </div>
+</div>

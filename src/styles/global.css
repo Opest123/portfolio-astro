@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens (Tailwind v4 CSS-first config — replaces tailwind.config.js).
+ * Every `--color-*`, `--font-*`, `--shadow-*` and `--animate-*` variable here
+ * becomes a utility class: bg-grape, font-display, shadow-nb, animate-bob, ...
+ */
+@theme {
+    --color-ink: #111111;
+    --color-cream: #fbf4e6;
+    --color-grape: #7c3aed;
+    --color-lime: #b6f400;
+    --color-hotpink: #ff5c8a;
+    --color-sky: #4cc9f0;
+    --color-sun: #ffc93c;
+
+    --font-display: "Archivo Black", system-ui, sans-serif;
+    --font-grotesk: "Space Grotesk", system-ui, sans-serif;
+
+    --shadow-nb-sm: 4px 4px 0 0 #111111;
+    --shadow-nb: 6px 6px 0 0 #111111;
+    --shadow-nb-lg: 10px 10px 0 0 #111111;
+    --shadow-nb-grape: 6px 6px 0 0 #7c3aed;
+    --shadow-nb-pink: 6px 6px 0 0 #ff5c8a;
+
+    --animate-marquee: marquee 22s linear infinite;
+    --animate-marquee-fast: marquee 14s linear infinite;
+    --animate-blink: blink 1s step-end infinite;
+    --animate-wobble: wobble 2.5s ease-in-out infinite;
+    --animate-float: float 4s ease-in-out infinite;
+    --animate-float-slow: float-slow 7s ease-in-out infinite;
+    --animate-bob: bob 2.8s ease-in-out infinite;
+    --animate-drift: drift 9s ease-in-out infinite;
+    --animate-twinkle: twinkle 3.5s ease-in-out infinite;
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    @keyframes wobble {
+        0%, 100% { transform: rotate(-3deg); }
+        50% { transform: rotate(3deg); }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes float-slow {
+        0%, 100% { transform: translateY(0) rotate(-12deg); }
+        50% { transform: translateY(-16px) rotate(-6deg); }
+    }
+    @keyframes bob {
+        0%, 100% { transform: translateY(0) rotate(-10deg); }
+        50% { transform: translateY(-14px) rotate(7deg); }
+    }
+    @keyframes drift {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(10px, -16px) rotate(10deg); }
+    }
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.2; transform: scale(0.85); }
+        50% { opacity: 0.7; transform: scale(1.15); }
+    }
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        overflow-x: clip;
+    }
+
+    body {
+        @apply bg-cream text-ink font-grotesk min-h-screen w-full;
+        overflow-x: clip;
+        /* Subtle dotted paper texture */
+        background-image: radial-gradient(#11111114 1.4px, transparent 1.4px);
+        background-size: 22px 22px;
+    }
+
+    /* Never let media force horizontal scroll on mobile */
+    img, svg, video {
+        max-width: 100%;
+    }
+
+    h1, h2, h3 {
+        @apply font-display leading-none;
+    }
+
+    /* Sections sit below the sticky nav when jumped to via anchor */
+    section[id] {
+        scroll-margin-top: 6rem;
+    }
+
+    button {
+        cursor: pointer;
+    }
+}
+
+@layer components {
+    /* Chunky bordered surface with a hard offset shadow */
+    .nb-card {
+        @apply bg-white border-[3px] border-ink shadow-nb transition-all duration-150 ease-out;
+    }
+
+    .nb-card-hover:hover {
+        @apply -translate-x-1 -translate-y-1 shadow-nb-lg;
+    }
+
+    /* Brutalist button */
+    .nb-btn {
+        @apply inline-flex items-center justify-center gap-2 border-[3px] border-ink bg-white
+               px-5 py-3 font-display text-sm uppercase tracking-wide shadow-nb-sm
+               transition-all duration-100 ease-out select-none cursor-pointer;
+    }
+    .nb-btn:hover {
+        @apply -translate-x-0.5 -translate-y-0.5 shadow-nb;
+    }
+    .nb-btn:active {
+        @apply translate-x-0.5 translate-y-0.5 shadow-none;
+    }
+
+    /* Sticker / tag pill (also the base for .nb-eyebrow) */
+    .nb-tag,
+    .nb-eyebrow {
+        @apply inline-block border-[3px] border-ink px-3 py-1 font-display text-xs uppercase
+               tracking-widest shadow-nb-sm;
+    }
+
+    /* Section eyebrow label */
+    .nb-eyebrow {
+        @apply bg-grape text-white;
+    }
+
+    /* Square icon button */
+    .nb-icon {
+        @apply flex h-12 w-12 items-center justify-center border-[3px] border-ink bg-white
+               shadow-nb-sm transition-all duration-100;
+    }
+    .nb-icon:hover {
+        @apply -translate-x-0.5 -translate-y-0.5 shadow-nb bg-lime;
+    }
+
+    /* Nav anchor link */
+    .nav-link {
+        @apply px-3 py-2 font-display text-xs uppercase tracking-wide border-[3px]
+               border-transparent transition-all duration-100 cursor-pointer;
+    }
+    .nav-link:hover {
+        @apply border-ink bg-sun shadow-nb-sm -translate-y-0.5;
+    }
+    .nav-link.is-active {
+        @apply border-ink bg-grape text-white shadow-nb-sm;
+    }
+
+    /* Active state for the mobile drawer buttons */
+    .nb-btn.is-active {
+        @apply bg-grape text-white;
+    }
+
+    /* Marquee band */
+    .marquee {
+        @apply relative flex overflow-hidden;
+    }
+    .marquee__track {
+        @apply flex shrink-0 items-center whitespace-nowrap;
+        will-change: transform;
+    }
+}
+
+/* Scroll reveal — starts hidden, the script in BaseLayout adds .is-visible */
+@utility reveal {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Without JS nothing would ever reveal, so show everything */
+@media (scripting: none) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .animate-marquee,
+    .animate-marquee-fast,
+    .animate-wobble,
+    .animate-float,
+    .animate-float-slow,
+    .animate-bob,
+    .animate-drift,
+    .animate-twinkle,
+    .animate-blink {
+        animation: none !important;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+}

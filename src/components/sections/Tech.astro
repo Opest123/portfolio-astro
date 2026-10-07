@@ -1,0 +1,27 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { techCategories } from '../../data/skills';
+---
+
+<section id="tech" class="px-4 py-20 md:px-6 md:py-28">
+    <div class="mx-auto max-w-6xl">
+        <SectionHeading eyebrow="Tech Stack" title="Tools of the trade 🛠️">
+            <p class="mt-4 max-w-2xl font-grotesk text-lg text-ink/80">
+                Front-to-back: the languages, frameworks, and infrastructure I reach for day to day.
+            </p>
+        </SectionHeading>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {techCategories.map((cat) => (
+                <div class="nb-card nb-card-hover reveal flex flex-col p-6">
+                    <span class:list={['nb-tag self-start', cat.tag]}>{cat.title}</span>
+                    <div class="mt-5 flex flex-wrap gap-2">
+                        {cat.items.map((item) => (
+                            <span class="nb-tag bg-white normal-case tracking-normal text-sm">{item}</span>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

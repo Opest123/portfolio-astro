@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -4 86 86" width="86" height="86" role="img" aria-label="Stephen Enikanoselu">
+  <!-- neo-brutalist offset shadow -->
+  <rect x="15" y="27" width="54" height="54" rx="5" fill="#111111"/>
+  <!-- purple square -->
+  <rect x="10" y="22" width="54" height="54" rx="5" fill="#7c3aed" stroke="#111111" stroke-width="6"/>
+  <!-- white S -->
+  <path d="M43 23 C43 17 36 14 30 15.5 C23 17 22 25 31 28 C41 31 44 40 37 45 C31 49 23 47 20 41"
+        transform="translate(5,17)" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- straw hat perched on top -->
+  <g transform="translate(13 -3) scale(0.42) rotate(-6 60 60)" stroke="#111111" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <ellipse cx="60" cy="66" rx="52" ry="16" fill="#ffc93c"/>
+    <path d="M34 64 C34 30 42 18 60 18 C78 18 86 30 86 64 Z" fill="#ffd766"/>
+    <path d="M34 57 C48 65 72 65 86 57 L86 49 C72 57 48 57 34 49 Z" fill="#ff5c8a" stroke-width="4"/>
+  </g>
+</svg>

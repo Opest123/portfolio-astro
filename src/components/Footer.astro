@@ -1,0 +1,24 @@
+---
+import SocialIcons from './SocialIcons.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t-[3px] border-ink bg-ink px-4 py-10 text-cream md:px-6">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
+        <div class="text-center md:text-left">
+            <p class="font-display text-lg uppercase">Stephen Enikanoselu</p>
+            <p class="mt-1 font-grotesk text-sm text-cream/60">Senior Full-Stack Developer · Gold Coast, AUS</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <SocialIcons />
+        </div>
+    </div>
+
+    <div class="mx-auto mt-8 max-w-7xl border-t-[3px] border-dashed border-cream/20 pt-6 text-center font-grotesk text-sm text-cream/50">
+        <img src="/images/svg/jolly-roger.svg" alt="" aria-hidden="true" class="mx-auto mb-3 w-12 animate-wobble" />
+        <p class="mb-2 font-display text-xs uppercase tracking-widest text-cream/70">Chasing the One Piece of clean code 🏴‍☠️</p>
+        <p>© {year} Stephen Enikanoselu. Built with Astro, React &amp; Tailwind. All rights reserved.</p>
+    </div>
+</footer>

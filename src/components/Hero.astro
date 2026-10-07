@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/images/stephenCircle.png';
+import SocialIcons from './SocialIcons.astro';
+---
+
+<section id="top" class="relative overflow-hidden px-4 pb-16 pt-14 md:px-6 md:pt-20">
+    {/* Ambient drifting sparkles & straw hats */}
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <span class="absolute right-[10%] top-[16%] font-display text-3xl text-grape opacity-50 animate-twinkle">✦</span>
+        <span class="absolute left-[40%] top-[30%] font-display text-lg text-sky opacity-60 animate-twinkle [animation-delay:0.8s]">✦</span>
+        <span class="absolute bottom-[16%] right-[28%] font-display text-2xl text-hotpink opacity-50 animate-twinkle [animation-delay:1.4s]">✦</span>
+        <span class="absolute bottom-[32%] left-[8%] font-display text-xl text-grape opacity-40 animate-twinkle [animation-delay:0.4s]">✦</span>
+        <img src="/images/svg/strawhat.svg" alt="" class="absolute bottom-[14%] left-[5%] w-8 rotate-[-14deg] opacity-30 animate-drift" />
+        <img src="/images/svg/strawhat.svg" alt="" class="absolute right-[5%] top-[42%] w-7 rotate-12 opacity-25 animate-float" />
+    </div>
+
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <div class="reveal">
+            <span class="nb-tag rotate-[-2deg] bg-white">👋 Hello, I'm</span>
+
+            <h1 class="mt-6 text-[2rem] uppercase leading-[1.02] sm:text-6xl md:text-7xl xl:text-8xl">
+                Stephen{' '}
+                <span class="mt-2 inline-block max-w-full break-words border-[3px] border-ink bg-grape px-2 text-white shadow-nb sm:px-3">Enikanoselu</span>
+            </h1>
+
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+                <span class="nb-tag bg-lime rotate-[1deg]">Senior Full-Stack Developer</span>
+                <span class="nb-tag bg-sky rotate-[-1deg]">📍 Gold Coast, AUS</span>
+            </div>
+
+            <p class="mt-7 max-w-xl font-grotesk text-lg leading-relaxed md:text-xl">
+                I build and scale production web and mobile apps across SaaS, fintech, and healthcare,
+                working front-to-back in Laravel, Node.js, and React/Next.js. With 7+ years of experience,
+                I turn complex problems into shipped product. I'm currently freelancing and open to new
+                opportunities, and I'm also part-time CTO of a travel-health startup.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a href="#projects" class="nb-btn bg-grape text-white">View my work →</a>
+                <a href="#contact" class="nb-btn bg-white">Get in touch</a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-3">
+                <SocialIcons />
+            </div>
+        </div>
+
+        {/* Framed portrait with floating stickers */}
+        <div class="reveal relative mx-auto w-full max-w-sm lg:max-w-none">
+            <div class="relative border-[3px] border-ink bg-sun shadow-nb-lg">
+                {/*
+                    astro:assets turns the 3901×6335 source PNG into
+                    right-sized WebP files with a srcset at build time.
+                */}
+                <Image
+                    src={portrait}
+                    alt="Stephen Enikanoselu"
+                    width={700}
+                    widths={[320, 480, 700]}
+                    sizes="(min-width: 768px) 384px, 320px"
+                    loading="eager"
+                    fetchpriority="high"
+                    class="mx-auto w-full max-w-xs p-4 md:max-w-sm"
+                />
+            </div>
+
+            {/* Straw-hat mascot (One Piece) */}
+            <img
+                src="/images/svg/strawhat.svg"
+                alt=""
+                aria-hidden="true"
+                width="120"
+                height="96"
+                class="absolute -right-4 -top-10 z-20 w-24 animate-bob drop-shadow-[4px_4px_0_#111] md:-right-8 md:-top-12 md:w-28"
+            />
+
+            <span class="nb-tag absolute -left-3 top-6 animate-float bg-hotpink text-white md:-left-6">&lt;/&gt; Laravel</span>
+            <span class="nb-tag absolute -right-2 bottom-16 animate-wobble bg-white md:-right-6">★ Node &amp; React</span>
+            <span class="nb-tag absolute -bottom-3 left-10 bg-lime">🚀 7+ years shipping</span>
+        </div>
+    </div>
+</section>

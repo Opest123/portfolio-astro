@@ -1,0 +1,45 @@
+---
+import { navItems } from '../data/site';
+import MobileMenu from './islands/MobileMenu';
+import SocialIcons from './SocialIcons.astro';
+---
+
+<header class="sticky top-0 z-50 border-b-[3px] border-ink">
+    {/*
+        The blur lives on its own layer: backdrop-filter on <header> itself
+        would make it the containing block for the mobile drawer's
+        `position: fixed`, trapping the drawer inside the header bar.
+    */}
+    <div aria-hidden="true" class="absolute inset-0 -z-10 bg-cream/95 backdrop-blur"></div>
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+        <a href="#top" class="flex items-center gap-3">
+            <span class="relative flex h-11 w-11 items-center justify-center border-[3px] border-ink bg-grape font-display text-xl text-white shadow-nb-sm">
+                S
+                <img
+                    src="/images/svg/strawhat.svg"
+                    alt=""
+                    aria-hidden="true"
+                    class="absolute -top-2.5 left-1/2 w-7 -translate-x-1/2 -rotate-6 drop-shadow-[2px_2px_0_#111]"
+                />
+            </span>
+            <span class="hidden font-display text-sm uppercase tracking-wider sm:block">Stephen&nbsp;E.</span>
+        </a>
+
+        {/* Desktop links: plain HTML, zero JS */}
+        <div class="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => (
+                <a href={`#${item.id}`} data-nav={item.id} class="nav-link">{item.label}</a>
+            ))}
+            <a href="#contact" class="nb-btn ml-3 bg-lime">Let's talk →</a>
+        </div>
+
+        {/*
+            Mobile menu is a React island. client:media means desktop visitors
+            never download or hydrate it. The Astro-rendered social icons are
+            passed in as children (static HTML, no extra JS).
+        */}
+        <MobileMenu client:media="(max-width: 1023px)" items={navItems}>
+            <SocialIcons />
+        </MobileMenu>
+    </nav>
+</header>

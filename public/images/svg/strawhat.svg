@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 96" width="120" height="96" role="img" aria-label="Straw hat">
+  <g stroke="#111111" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- brim -->
+    <ellipse cx="60" cy="66" rx="52" ry="16" fill="#ffc93c"/>
+    <!-- crown -->
+    <path d="M34 64 C34 30 42 18 60 18 C78 18 86 30 86 64 Z" fill="#ffd766"/>
+    <!-- red band -->
+    <path d="M34 57 C48 65 72 65 86 57 L86 49 C72 57 48 57 34 49 Z" fill="#ff5c8a" stroke-width="4"/>
+  </g>
+</svg>

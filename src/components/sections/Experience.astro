@@ -1,0 +1,32 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { roles } from '../../data/experience';
+---
+
+<section id="experience" class="px-4 py-20 md:px-6 md:py-28">
+    <div class="mx-auto max-w-5xl">
+        <SectionHeading eyebrow="Experience" title="Where I've worked 💼" tilt="right" />
+
+        <div class="mt-10 space-y-7">
+            {roles.map((role) => (
+                <div class="nb-card nb-card-hover reveal p-6 md:p-8">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <h3 class="text-2xl uppercase md:text-3xl">{role.company}</h3>
+                            <p class="mt-1 font-display text-sm uppercase tracking-wide text-grape">{role.role}</p>
+                            <p class="mt-1 font-grotesk text-sm text-ink/60">{role.location}</p>
+                        </div>
+                        <div class="flex shrink-0 flex-wrap items-center gap-2 self-start md:flex-col md:items-end">
+                            <span class:list={['nb-tag', role.tag]}>{role.years}</span>
+                            {role.note && <span class="nb-tag bg-ink text-cream">{role.note}</span>}
+                        </div>
+                    </div>
+                    <p class="mt-5 font-grotesk text-lg leading-relaxed">{role.highlight}</p>
+                    <p class="mt-4 border-t-[3px] border-dashed border-ink/20 pt-4 font-grotesk text-sm font-bold uppercase tracking-wide text-ink/50">
+                        {role.stack.join(' · ')}
+                    </p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

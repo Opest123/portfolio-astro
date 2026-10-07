@@ -1,0 +1,43 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import ContactForm from '../islands/ContactForm';
+import { site, socials } from '../../data/site';
+
+const links = [
+    { href: `mailto:${site.email}`, icon: '✉', text: site.email, external: false },
+    { href: socials.twitter.url, icon: '𝕏', text: socials.twitter.handle, external: true },
+    { href: socials.linkedin.url, icon: 'in', text: socials.linkedin.handle, external: true },
+];
+---
+
+<section id="contact" class="px-4 py-20 md:px-6 md:py-28">
+    <div class="mx-auto max-w-6xl">
+        <SectionHeading eyebrow="Contact" title="Let's build something 🤝" tilt="right">
+            <p class="mt-4 max-w-2xl font-grotesk text-lg text-ink/80">
+                I'm excited to learn about your project. Ready to get started?
+            </p>
+        </SectionHeading>
+
+        <div class="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div class="nb-card reveal flex flex-col gap-5 self-start bg-grape p-7 text-white">
+                <h3 class="text-2xl uppercase">Say hello</h3>
+                {links.map((link) => (
+                    <a
+                        href={link.href}
+                        target={link.external ? '_blank' : undefined}
+                        rel={link.external ? 'noopener' : undefined}
+                        class="flex items-center gap-3 font-grotesk hover:underline"
+                    >
+                        <span class="flex h-9 w-9 shrink-0 items-center justify-center border-[3px] border-white">{link.icon}</span>
+                        <span class="break-all">{link.text}</span>
+                    </a>
+                ))}
+            </div>
+
+            {/* Below the fold, so only load React + the form when it scrolls into view */}
+            <div class="reveal">
+                <ContactForm client:visible />
+            </div>
+        </div>
+    </div>
+</section>
